@@ -1,0 +1,108 @@
+name: CI workflow
+
+on:
+  push:
+    branches:
+      - feature/develop/*
+    paths-ignore:
+      - '**/*.md'
+      - '**/.gitignore'
+  pull_request:
+    branches:
+      - feature
+    paths-ignore:
+      - '*.md'
+      - '.github/workflows/**'
+  workflow_dispatch:
+
+permissions:
+  pull-requests: write
+  contents: read
+  checks: write
+
+env:
+  DOTNET_CLI_TELEMETRY_OPTOUT: 1
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
+
+jobs:
+  client-build:
+    name: Client Build
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Configure MSBuild
+      uses: microsoft/setup-msbuild@v1.3.1
+
+    - name: Restore NuGet packages
+      run: nuget restore ./client/client.sln
+      
+    - name: Build Client
+      run: msbuild ./client/client.sln /p:Configuration=Release
+
+    - name: Package Client Files
+      run: |
+        mkdir client-output
+        cp client/client/bin/Release/* client-output/
+        
+    - name: Upload Server Artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: client-binary
+        path: "**/client.exe"
+        retention-days: 7
+
+  server-build:
+    name: Server Build
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Install Arduino Tools
+      run: |
+        curl -fsSL https://downloads.arduino.cc/arduino-cli/arduino-cli_latest_Linux_64bit.tar.gz | tar xz
+        ./arduino-cli config init
+        ./arduino-cli core update-index
+        ./arduino-cli core install arduino:avr
+        
+    - name: Build Server
+      run: |
+        mkdir -p server-output
+        ./arduino-cli compile --fqbn arduino:avr:uno server/server.ino --output-dir server-output
+        
+    - name: Upload Server Artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: server-binary
+        path: "**/server.ino.hex"
+        retention-days: 7
+
+  test:
+    name: Test
+    needs: client-build
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+          
+      - name: Clean solution
+        run: dotnet clean ./tests/ClientTests/ClientTests.csproj
+          
+      - name: Restore Test Dependencies  
+        run: dotnet restore ./tests/ClientTests/ClientTests.csproj
+          
+      - name: Build Tests
+        run: dotnet build ./tests/ClientTests/ClientTests.csproj --configuration Debug
+          
+      - name: Run Tests
+        run: dotnet test ./tests/ClientTests/ClientTests.csproj --configuration Debug --logger "trx;LogFileName=test_results.trx"
+          
+      - name: Upload Test Results Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-results
+          path: "**/*.trx"
