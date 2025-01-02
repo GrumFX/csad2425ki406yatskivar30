@@ -79,7 +79,7 @@ jobs:
 
   test:
     name: Test
-    needs: build-client
+    needs: client-build
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
