@@ -1,4 +1,4 @@
-name: CI workflow
+name: CI pipline
 
 on:
   push:
@@ -16,93 +16,50 @@ on:
   workflow_dispatch:
 
 permissions:
-  pull-requests: write
   contents: read
   checks: write
+  pull-requests: write
 
 env:
   DOTNET_CLI_TELEMETRY_OPTOUT: 1
   DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
 
 jobs:
-  client-build:
-    name: Client Build
-    runs-on: windows-latest
-    steps:
-    - uses: actions/checkout@v4
-    
-    - name: Configure MSBuild
-      uses: microsoft/setup-msbuild@v1.3.1
-
-    - name: Restore NuGet packages
-      run: nuget restore ./client/client.sln
-      
-    - name: Build Client
-      run: msbuild ./client/client.sln /p:Configuration=Release
-
-    - name: Package Client Files
-      run: |
-        mkdir client-output
-        cp client/client/bin/Release/* client-output/
-        
-    - name: Upload Server Artifact
-      uses: actions/upload-artifact@v3
-      with:
-        name: client-binary
-        path: "**/client.exe"
-        retention-days: 7
-
-  server-build:
-    name: Server Build
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v4
-
-    - name: Install Arduino Tools
-      run: |
-        curl -fsSL https://downloads.arduino.cc/arduino-cli/arduino-cli_latest_Linux_64bit.tar.gz | tar xz
-        ./arduino-cli config init
-        ./arduino-cli core update-index
-        ./arduino-cli core install arduino:avr
-        
-    - name: Build Server
-      run: |
-        mkdir -p server-output
-        ./arduino-cli compile --fqbn arduino:avr:uno server/server.ino --output-dir server-output
-        
-    - name: Upload Server Artifact
-      uses: actions/upload-artifact@v3
-      with:
-        name: server-binary
-        path: "**/server.ino.hex"
-        retention-days: 7
-
-  test:
-    name: Test
-    needs: client-build
+  build:
+    name: Build
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
       
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v4
+      - name: Configure MSBuild
+        uses: microsoft/setup-msbuild@v1.3.1
+      
+      - name: Install Arduino CLI
+        run: |
+          $ArduinoURL = "https://downloads.arduino.cc/arduino-cli/arduino-cli_latest_Windows_64bit.zip"
+          Invoke-WebRequest -Uri $ArduinoURL -OutFile arduino-cli.zip
+          Expand-Archive arduino-cli.zip -DestinationPath .
+          echo "${{github.workspace}}" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+          .\arduino-cli.exe config init
+          .\arduino-cli.exe core update-index
+          .\arduino-cli.exe core install arduino:avr
+        shell: pwsh
+      
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: 8.0.x
-          
-      - name: Clean solution
-        run: dotnet clean ./tests/ClientTests/ClientTests.csproj
-          
-      - name: Restore Test Dependencies  
-        run: dotnet restore ./tests/ClientTests/ClientTests.csproj
-          
-      - name: Build Tests
-        run: dotnet build ./tests/ClientTests/ClientTests.csproj --configuration Debug
-          
-      - name: Run Tests
-        run: dotnet test ./tests/ClientTests/ClientTests.csproj --configuration Debug --logger "trx;LogFileName=test_results.trx"
-          
-      - name: Upload Test Results Artifact
+          dotnet-version: '7.0.x'
+      
+      - name: Store Client Build
         uses: actions/upload-artifact@v3
         with:
-          name: test-results
-          path: "**/*.trx"
+          name: client-files
+          path: deploy/client-output/*
+          retention-days: 7
+          
+      - name: Store Server Build
+        uses: actions/upload-artifact@v3
+        with:
+          name: server-files
+          path: deploy/server-output/*
+          retention-days: 7

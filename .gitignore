@@ -1,0 +1,16 @@
+# Visual Studio - Specifics
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Visual Studio - Builds
+**/bin/
+**/obj/
+Build/
+Debug/
+Release/
+
+# Arduino IDE - Builds
+/server/build/
