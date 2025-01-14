@@ -1,0 +1,130 @@
+\doxysection{server/server.ino File Reference}
+\hypertarget{server_8ino}{}\label{server_8ino}\index{server/server.ino@{server/server.ino}}
+{\ttfamily \#include $<$Arduino.\+h$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{server_8ino_ac36dab4639e53a021449ee80162088c1}{send\+Result}} (const String \&status)
+\item 
+void \mbox{\hyperlink{server_8ino_a8b8e2168eb6260938e6338dfeb79b474}{reset\+Round}} ()
+\item 
+void \mbox{\hyperlink{server_8ino_af1de076469d08f717d537d1b6b028566}{reset\+Game}} ()
+\item 
+int \mbox{\hyperlink{server_8ino_a76005c00f749c3126fd2433e03a04fdf}{compare\+Moves}} (int move1, int move2)
+\item 
+String \mbox{\hyperlink{server_8ino_ade0f806163a588cfa7e794f321e833f9}{check\+Game\+Outcome}} ()
+\item 
+void \mbox{\hyperlink{server_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup}} ()
+\item 
+void \mbox{\hyperlink{server_8ino_afe461d27b9c48d5921c00d521181f12f}{loop}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{server_8ino_ad50245802a4cc7e5276dd7375a2f5282}{choice\+One}} = -\/1
+\item 
+int \mbox{\hyperlink{server_8ino_ae771f4f4a8e20abbefb67c05435e2627}{choice\+Two}} = -\/1
+\item 
+int \mbox{\hyperlink{server_8ino_ac568e4e6ddcdbc58fd75b3533b76fdc4}{wins\+One}} = 0
+\item 
+int \mbox{\hyperlink{server_8ino_ab7c3ed61381ca52b714902e8aa28481e}{wins\+Two}} = 0
+\item 
+int \mbox{\hyperlink{server_8ino_a4523c9dd061d461cb2815a71942958f8}{round\+Count}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{server_8ino_ade0f806163a588cfa7e794f321e833f9}\index{server.ino@{server.ino}!checkGameOutcome@{checkGameOutcome}}
+\index{checkGameOutcome@{checkGameOutcome}!server.ino@{server.ino}}
+\doxysubsubsection{\texorpdfstring{checkGameOutcome()}{checkGameOutcome()}}
+{\footnotesize\ttfamily \label{server_8ino_ade0f806163a588cfa7e794f321e833f9} 
+String check\+Game\+Outcome (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Checks if a player has won the entire game. \begin{DoxyReturn}{Returns}
+A string indicating the winner ("{}one\+\_\+won\+\_\+game"{}, "{}two\+\_\+won\+\_\+game"{}) or an empty string if no one has won yet. 
+\end{DoxyReturn}
+\Hypertarget{server_8ino_a76005c00f749c3126fd2433e03a04fdf}\index{server.ino@{server.ino}!compareMoves@{compareMoves}}
+\index{compareMoves@{compareMoves}!server.ino@{server.ino}}
+\doxysubsubsection{\texorpdfstring{compareMoves()}{compareMoves()}}
+{\footnotesize\ttfamily \label{server_8ino_a76005c00f749c3126fd2433e03a04fdf} 
+int compare\+Moves (\begin{DoxyParamCaption}\item[{int}]{move1}{, }\item[{int}]{move2}{}\end{DoxyParamCaption})}
+
+Compares the moves of Player One and Player Two. 
+\begin{DoxyParams}{Parameters}
+{\em move1} & The move of Player One (0=Rock, 1=Paper, 2=Scissors). \\
+\hline
+{\em move2} & The move of Player Two (0=Rock, 1=Paper, 2=Scissors). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 for a draw, 1 if Player One wins, 2 if Player Two wins. 
+\end{DoxyReturn}
+\Hypertarget{server_8ino_afe461d27b9c48d5921c00d521181f12f}\index{server.ino@{server.ino}!loop@{loop}}
+\index{loop@{loop}!server.ino@{server.ino}}
+\doxysubsubsection{\texorpdfstring{loop()}{loop()}}
+{\footnotesize\ttfamily \label{server_8ino_afe461d27b9c48d5921c00d521181f12f} 
+void loop (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Arduino loop function, called continuously. Processes incoming messages from the client and performs game actions. \Hypertarget{server_8ino_af1de076469d08f717d537d1b6b028566}\index{server.ino@{server.ino}!resetGame@{resetGame}}
+\index{resetGame@{resetGame}!server.ino@{server.ino}}
+\doxysubsubsection{\texorpdfstring{resetGame()}{resetGame()}}
+{\footnotesize\ttfamily \label{server_8ino_af1de076469d08f717d537d1b6b028566} 
+void reset\+Game (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Resets the entire game, including the win counters and round count. \Hypertarget{server_8ino_a8b8e2168eb6260938e6338dfeb79b474}\index{server.ino@{server.ino}!resetRound@{resetRound}}
+\index{resetRound@{resetRound}!server.ino@{server.ino}}
+\doxysubsubsection{\texorpdfstring{resetRound()}{resetRound()}}
+{\footnotesize\ttfamily \label{server_8ino_a8b8e2168eb6260938e6338dfeb79b474} 
+void reset\+Round (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Resets the current round by clearing the players\textquotesingle{} choices. \Hypertarget{server_8ino_ac36dab4639e53a021449ee80162088c1}\index{server.ino@{server.ino}!sendResult@{sendResult}}
+\index{sendResult@{sendResult}!server.ino@{server.ino}}
+\doxysubsubsection{\texorpdfstring{sendResult()}{sendResult()}}
+{\footnotesize\ttfamily \label{server_8ino_ac36dab4639e53a021449ee80162088c1} 
+void send\+Result (\begin{DoxyParamCaption}\item[{const String \&}]{status}{}\end{DoxyParamCaption})}
+
+Sends a result message back to the client. 
+\begin{DoxyParams}{Parameters}
+{\em status} & The status message to send (e.\+g., "{}success"{}, "{}game\+\_\+reset"{}, etc.). \\
+\hline
+\end{DoxyParams}
+\Hypertarget{server_8ino_a4fc01d736fe50cf5b977f755b675f11d}\index{server.ino@{server.ino}!setup@{setup}}
+\index{setup@{setup}!server.ino@{server.ino}}
+\doxysubsubsection{\texorpdfstring{setup()}{setup()}}
+{\footnotesize\ttfamily \label{server_8ino_a4fc01d736fe50cf5b977f755b675f11d} 
+void setup (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Arduino setup function, called once at the start. Initializes serial communication and resets the game state. 
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{server_8ino_ad50245802a4cc7e5276dd7375a2f5282}\index{server.ino@{server.ino}!choiceOne@{choiceOne}}
+\index{choiceOne@{choiceOne}!server.ino@{server.ino}}
+\doxysubsubsection{\texorpdfstring{choiceOne}{choiceOne}}
+{\footnotesize\ttfamily \label{server_8ino_ad50245802a4cc7e5276dd7375a2f5282} 
+int choice\+One = -\/1}
+
+The choice of Player One for the current round. -\/1 indicates no choice has been made yet. \Hypertarget{server_8ino_ae771f4f4a8e20abbefb67c05435e2627}\index{server.ino@{server.ino}!choiceTwo@{choiceTwo}}
+\index{choiceTwo@{choiceTwo}!server.ino@{server.ino}}
+\doxysubsubsection{\texorpdfstring{choiceTwo}{choiceTwo}}
+{\footnotesize\ttfamily \label{server_8ino_ae771f4f4a8e20abbefb67c05435e2627} 
+int choice\+Two = -\/1}
+
+The choice of Player Two for the current round. -\/1 indicates no choice has been made yet. \Hypertarget{server_8ino_a4523c9dd061d461cb2815a71942958f8}\index{server.ino@{server.ino}!roundCount@{roundCount}}
+\index{roundCount@{roundCount}!server.ino@{server.ino}}
+\doxysubsubsection{\texorpdfstring{roundCount}{roundCount}}
+{\footnotesize\ttfamily \label{server_8ino_a4523c9dd061d461cb2815a71942958f8} 
+int round\+Count = 0}
+
+The total number of rounds played in the current game. \Hypertarget{server_8ino_ac568e4e6ddcdbc58fd75b3533b76fdc4}\index{server.ino@{server.ino}!winsOne@{winsOne}}
+\index{winsOne@{winsOne}!server.ino@{server.ino}}
+\doxysubsubsection{\texorpdfstring{winsOne}{winsOne}}
+{\footnotesize\ttfamily \label{server_8ino_ac568e4e6ddcdbc58fd75b3533b76fdc4} 
+int wins\+One = 0}
+
+The number of rounds won by Player One. \Hypertarget{server_8ino_ab7c3ed61381ca52b714902e8aa28481e}\index{server.ino@{server.ino}!winsTwo@{winsTwo}}
+\index{winsTwo@{winsTwo}!server.ino@{server.ino}}
+\doxysubsubsection{\texorpdfstring{winsTwo}{winsTwo}}
+{\footnotesize\ttfamily \label{server_8ino_ab7c3ed61381ca52b714902e8aa28481e} 
+int wins\+Two = 0}
+
+The number of rounds won by Player Two. 

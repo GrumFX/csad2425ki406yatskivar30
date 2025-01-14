@@ -1,0 +1,513 @@
+\doxysection{Rock\+Papper\+Scissors\+WPF.\+Main\+Window Class Reference}
+\hypertarget{class_rock_papper_scissors_w_p_f_1_1_main_window}{}\label{class_rock_papper_scissors_w_p_f_1_1_main_window}\index{RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}}
+
+
+Interaction logic for Main\+Window.\+xaml. This class represents the main window of the Rock-\/\+Paper-\/\+Scissors WPF application.  
+
+
+Inheritance diagram for Rock\+Papper\+Scissors\+WPF.\+Main\+Window\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_rock_papper_scissors_w_p_f_1_1_main_window}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_rock_papper_scissors_w_p_f_1_1_main_window_1_1_round_info}{Round\+Info}}
+\begin{DoxyCompactList}\small\item\em Information about a single round of the game. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_rock_papper_scissors_w_p_f_1_1_main_window_abeacf44a44e822059661bf5dfff06290}{Main\+Window}} ()
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the \doxylink{class_rock_papper_scissors_w_p_f_1_1_main_window}{Main\+Window} class and sets up the initial state of the game. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_rock_papper_scissors_w_p_f_1_1_main_window_aab7282a5da5700e9485766e06ab5c03c}{Initialize\+Game}} ()
+\begin{DoxyCompactList}\small\item\em Prepares the game data structures and creates UI elements for player choices. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_rock_papper_scissors_w_p_f_1_1_main_window_a4c789e38a7f531a5ef387049ac2a9505}{Create\+Choices}} ()
+\begin{DoxyCompactList}\small\item\em Dynamically creates the Rock, Paper, and Scissors buttons and adds them to the UI. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_rock_papper_scissors_w_p_f_1_1_main_window_a704469fbd5deb8706f9c37be91314c4d}{Set\+Game\+Board\+Active}} (bool is\+Active)
+\begin{DoxyCompactList}\small\item\em Enables or disables the choice buttons based on the {\itshape is\+Active}  parameter. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_rock_papper_scissors_w_p_f_1_1_main_window_ab8308c0a2014f0928e94396378d22a88}{Refresh\+Ports}} ()
+\begin{DoxyCompactList}\small\item\em Loads the available COM ports from the system and populates the Port\+Combo\+Box. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_rock_papper_scissors_w_p_f_1_1_main_window_a3a73ec02b29dadbaddee5d4ebf24a41e}{Load\+Configuration}} ()
+\begin{DoxyCompactList}\small\item\em Reads the configuration settings from the INI file (if it exists). Sets UI elements (port, baud rate, game mode) to the saved values. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_rock_papper_scissors_w_p_f_1_1_main_window_a02f9021566e81013adc3e402ef19578f}{Save\+Configuration}} ()
+\begin{DoxyCompactList}\small\item\em Saves the current configuration (port, baud rate, game mode) to the INI file. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_rock_papper_scissors_w_p_f_1_1_main_window_a94bdd104ce1a9abccf9f4da939bc2d1b}{Get\+Game\+Mode\+String}} ()
+\begin{DoxyCompactList}\small\item\em Returns the string representation of the \doxylink{namespace_rock_papper_scissors_w_p_f_aac301af186e802c996b96abf0a6b26ec}{Game\+Mode} for saving or display. \end{DoxyCompactList}\item 
+async void \mbox{\hyperlink{class_rock_papper_scissors_w_p_f_1_1_main_window_a0cb739eede7ac4ca1b59ba101e0f8089}{Start\+Game\+\_\+\+Click}} (object sender, Routed\+Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Event handler for the "{}\+Start Game"{} button click. Sets up the serial port, sends a reset command to the server, and starts the game loop if necessary. \end{DoxyCompactList}\item 
+async void \mbox{\hyperlink{class_rock_papper_scissors_w_p_f_1_1_main_window_a1726ea278920cace73241a615cf0ec14}{Game\+Button\+\_\+\+Click}} (object sender, Routed\+Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Event handler for each Rock/\+Paper/\+Scissors button click. Captures the player\textquotesingle{}s choice and then triggers the logic to finalize or continue the round. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_rock_papper_scissors_w_p_f_1_1_main_window_a389f4a053d7603f1bcbb0c776f0028d7}{Port\+Combo\+Box\+\_\+\+Selection\+Changed}} (object sender, Selection\+Changed\+Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Event handler for the port Combo\+Box selection change. Saves the configuration immediately when the user selects a new port. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_rock_papper_scissors_w_p_f_1_1_main_window_ae72558ec64af84c829139a18a7d87262}{Baud\+Rate\+Combo\+Box\+\_\+\+Selection\+Changed}} (object sender, Selection\+Changed\+Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Event handler for the Baud\+Rate\+Combo\+Box selection change. Parses and saves the selected baud rate to the configuration. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_rock_papper_scissors_w_p_f_1_1_main_window_ad34b92fed63ffd5d013e988da8d778f8}{Game\+Mode\+Combo\+Box\+\_\+\+Selection\+Changed}} (object sender, Selection\+Changed\+Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Event handler for the Game\+Mode\+Combo\+Box selection change. Updates \doxylink{class_rock_papper_scissors_w_p_f_1_1_main_window_a5c475ac43d1094b5d84a1878bede26cc}{current\+Game\+Mode} and saves the new mode to the configuration. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_rock_papper_scissors_w_p_f_1_1_main_window_ac24ff390005b3261ae298721ee026617}{Reset\+Game}} ()
+\begin{DoxyCompactList}\small\item\em Resets the game state to defaults and updates UI elements accordingly. \end{DoxyCompactList}\item 
+async Task$<$ string $>$ \mbox{\hyperlink{class_rock_papper_scissors_w_p_f_1_1_main_window_afbe722bd0e4dd7530ddd2a3f8d75d8c2}{Send\+Message\+With\+Timeout}} (string message, int timeout)
+\begin{DoxyCompactList}\small\item\em Wraps writing a message to the serial port and waiting for a response with a timeout. \end{DoxyCompactList}\item 
+async Task \mbox{\hyperlink{class_rock_papper_scissors_w_p_f_1_1_main_window_a387641f6d6bbec4491c3321f1be8319d}{Make\+Choice}} (int choice)
+\begin{DoxyCompactList}\small\item\em Called when the user (or the computer) selects Rock/\+Paper/\+Scissors. Sets the appropriate player\textquotesingle{}s choice, updates \doxylink{class_rock_papper_scissors_w_p_f_1_1_main_window_af92a57071e0b5a10784747f284d09ea5}{current\+Player}, and sends choices to the server if both are selected. \end{DoxyCompactList}\item 
+async Task \mbox{\hyperlink{class_rock_papper_scissors_w_p_f_1_1_main_window_a4ac1b9a08d4da6587dc15632297d5724}{Send\+Choices\+To\+Server}} ()
+\begin{DoxyCompactList}\small\item\em Sends the accumulated choices to the server if both players have already chosen. If the server returns a result, processes it. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_rock_papper_scissors_w_p_f_1_1_main_window_a399b191ea57f338473ccbdbb16182c21}{Process\+Server\+Response}} (string response)
+\begin{DoxyCompactList}\small\item\em Processes the server\textquotesingle{}s response to determine the round/game outcome and updates the UI accordingly. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_rock_papper_scissors_w_p_f_1_1_main_window_a86cd07ff779401775b7a8b1f77dff099}{Show\+Round\+Moves}} (string round\+Result)
+\begin{DoxyCompactList}\small\item\em Displays a message box with the moves and results for the current round. Also appends the round info to the \doxylink{class_rock_papper_scissors_w_p_f_1_1_main_window_a81d49b49e4862e214fc368537f282fa9}{round\+History}. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_rock_papper_scissors_w_p_f_1_1_main_window_a85fa546603bd447930e405b3a1a3484c}{Choice\+To\+String}} (int? choice)
+\begin{DoxyCompactList}\small\item\em Converts the numeric move choice (0,1,2) to a string ("{}\+Rock"{}, "{}\+Paper"{}, "{}\+Scissors"{}). \end{DoxyCompactList}\item 
+async Task \mbox{\hyperlink{class_rock_papper_scissors_w_p_f_1_1_main_window_aebd8b917385e4c9a61a1de442e977827}{Play\+Computer\+Game}} (Cancellation\+Token ct)
+\begin{DoxyCompactList}\small\item\em Handles the computer-\/vs-\/computer game loop. Each player picks randomly with a short delay. \end{DoxyCompactList}\item 
+async Task \mbox{\hyperlink{class_rock_papper_scissors_w_p_f_1_1_main_window_af26bed2e82fc48497d8d526ee7c14115}{Make\+Computer\+Move}} ()
+\begin{DoxyCompactList}\small\item\em Makes a single random move on behalf of the computer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_rock_papper_scissors_w_p_f_1_1_main_window_aa9915707822a228c5d065f708419eafc}{Game\+Over}} (string message)
+\begin{DoxyCompactList}\small\item\em Ends the current game, displays the final result, and disables inputs. Also cancels the computer loop if running. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Serial\+Port \mbox{\hyperlink{class_rock_papper_scissors_w_p_f_1_1_main_window_a6ffe34f7febe4591a7f572a3789acbec}{serial\+Port}}
+\item 
+Button\mbox{[},\mbox{]} \mbox{\hyperlink{class_rock_papper_scissors_w_p_f_1_1_main_window_addaffebf6516adf6ba224b7c2079518b}{buttons}}
+\item 
+\mbox{\hyperlink{namespace_rock_papper_scissors_w_p_f_aac301af186e802c996b96abf0a6b26ec}{Game\+Mode}} \mbox{\hyperlink{class_rock_papper_scissors_w_p_f_1_1_main_window_a5c475ac43d1094b5d84a1878bede26cc}{current\+Game\+Mode}}
+\item 
+bool \mbox{\hyperlink{class_rock_papper_scissors_w_p_f_1_1_main_window_a7823c82d1b20eee2d462171e14e211dd}{is\+Game\+Active}}
+\item 
+string \mbox{\hyperlink{class_rock_papper_scissors_w_p_f_1_1_main_window_af92a57071e0b5a10784747f284d09ea5}{current\+Player}}
+\item 
+Random \mbox{\hyperlink{class_rock_papper_scissors_w_p_f_1_1_main_window_a0c891cab6c69ac3416c0cad20270a51a}{random}}
+\item 
+string \mbox{\hyperlink{class_rock_papper_scissors_w_p_f_1_1_main_window_ab47f478691070767a11bd81684b5d130}{config\+Path}} = "{}config.\+ini"{}
+\item 
+bool \mbox{\hyperlink{class_rock_papper_scissors_w_p_f_1_1_main_window_ac4e30ffecab81f23dcdf4fba2d6eff55}{is\+Computer\+Turn}}
+\item 
+Cancellation\+Token\+Source \mbox{\hyperlink{class_rock_papper_scissors_w_p_f_1_1_main_window_aa3be50568de30bb74d859d90d06c8a5b}{computer\+Game\+Cts}}
+\item 
+int \mbox{\hyperlink{class_rock_papper_scissors_w_p_f_1_1_main_window_a64c8af012d3a6a4d007a832a135f9446}{baud\+Rate}}
+\item 
+int? \mbox{\hyperlink{class_rock_papper_scissors_w_p_f_1_1_main_window_aa7b5385b8155f32018a74ebdc242d406}{current\+Choice\+Player\+One}}
+\item 
+int? \mbox{\hyperlink{class_rock_papper_scissors_w_p_f_1_1_main_window_a3db35e34a5dc037b750acdb037d0aad4}{current\+Choice\+Player\+Two}}
+\item 
+readonly List$<$ \mbox{\hyperlink{class_rock_papper_scissors_w_p_f_1_1_main_window_1_1_round_info}{Round\+Info}} $>$ \mbox{\hyperlink{class_rock_papper_scissors_w_p_f_1_1_main_window_a81d49b49e4862e214fc368537f282fa9}{round\+History}} = new List$<$\mbox{\hyperlink{class_rock_papper_scissors_w_p_f_1_1_main_window_1_1_round_info}{Round\+Info}}$>$()
+\item 
+Date\+Time \mbox{\hyperlink{class_rock_papper_scissors_w_p_f_1_1_main_window_ada0d445118f093fe1d4e0518ea923050}{last\+Move\+Time}} = Date\+Time.\+Min\+Value
+\begin{DoxyCompactList}\small\item\em Represents the time of the last move made. \end{DoxyCompactList}\item 
+readonly Time\+Span \mbox{\hyperlink{class_rock_papper_scissors_w_p_f_1_1_main_window_ac833714a50ed8213dfd5fe4caba5a5d7}{move\+Delay}} = Time\+Span.\+From\+Seconds(0.\+5)
+\begin{DoxyCompactList}\small\item\em A time span that enforces a delay between moves. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interaction logic for Main\+Window.\+xaml. This class represents the main window of the Rock-\/\+Paper-\/\+Scissors WPF application. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_rock_papper_scissors_w_p_f_1_1_main_window_abeacf44a44e822059661bf5dfff06290}\index{RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}!MainWindow@{MainWindow}}
+\index{MainWindow@{MainWindow}!RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}}
+\doxysubsubsection{\texorpdfstring{MainWindow()}{MainWindow()}}
+{\footnotesize\ttfamily \label{class_rock_papper_scissors_w_p_f_1_1_main_window_abeacf44a44e822059661bf5dfff06290} 
+Rock\+Papper\+Scissors\+WPF.\+Main\+Window.\+Main\+Window (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initializes a new instance of the \doxylink{class_rock_papper_scissors_w_p_f_1_1_main_window}{Main\+Window} class and sets up the initial state of the game. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_rock_papper_scissors_w_p_f_1_1_main_window_ae72558ec64af84c829139a18a7d87262}\index{RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}!BaudRateComboBox\_SelectionChanged@{BaudRateComboBox\_SelectionChanged}}
+\index{BaudRateComboBox\_SelectionChanged@{BaudRateComboBox\_SelectionChanged}!RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}}
+\doxysubsubsection{\texorpdfstring{BaudRateComboBox\_SelectionChanged()}{BaudRateComboBox\_SelectionChanged()}}
+{\footnotesize\ttfamily \label{class_rock_papper_scissors_w_p_f_1_1_main_window_ae72558ec64af84c829139a18a7d87262} 
+void Rock\+Papper\+Scissors\+WPF.\+Main\+Window.\+Baud\+Rate\+Combo\+Box\+\_\+\+Selection\+Changed (\begin{DoxyParamCaption}\item[{object}]{sender}{, }\item[{Selection\+Changed\+Event\+Args}]{e}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Event handler for the Baud\+Rate\+Combo\+Box selection change. Parses and saves the selected baud rate to the configuration. 
+
+\Hypertarget{class_rock_papper_scissors_w_p_f_1_1_main_window_a85fa546603bd447930e405b3a1a3484c}\index{RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}!ChoiceToString@{ChoiceToString}}
+\index{ChoiceToString@{ChoiceToString}!RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}}
+\doxysubsubsection{\texorpdfstring{ChoiceToString()}{ChoiceToString()}}
+{\footnotesize\ttfamily \label{class_rock_papper_scissors_w_p_f_1_1_main_window_a85fa546603bd447930e405b3a1a3484c} 
+string Rock\+Papper\+Scissors\+WPF.\+Main\+Window.\+Choice\+To\+String (\begin{DoxyParamCaption}\item[{int?}]{choice}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Converts the numeric move choice (0,1,2) to a string ("{}\+Rock"{}, "{}\+Paper"{}, "{}\+Scissors"{}). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em choice} & The player\textquotesingle{}s choice in numeric form.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A string representing the move. "{}\+None"{} if no choice is set.
+\end{DoxyReturn}
+\Hypertarget{class_rock_papper_scissors_w_p_f_1_1_main_window_a4c789e38a7f531a5ef387049ac2a9505}\index{RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}!CreateChoices@{CreateChoices}}
+\index{CreateChoices@{CreateChoices}!RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}}
+\doxysubsubsection{\texorpdfstring{CreateChoices()}{CreateChoices()}}
+{\footnotesize\ttfamily \label{class_rock_papper_scissors_w_p_f_1_1_main_window_a4c789e38a7f531a5ef387049ac2a9505} 
+void Rock\+Papper\+Scissors\+WPF.\+Main\+Window.\+Create\+Choices (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Dynamically creates the Rock, Paper, and Scissors buttons and adds them to the UI. 
+
+\Hypertarget{class_rock_papper_scissors_w_p_f_1_1_main_window_a1726ea278920cace73241a615cf0ec14}\index{RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}!GameButton\_Click@{GameButton\_Click}}
+\index{GameButton\_Click@{GameButton\_Click}!RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}}
+\doxysubsubsection{\texorpdfstring{GameButton\_Click()}{GameButton\_Click()}}
+{\footnotesize\ttfamily \label{class_rock_papper_scissors_w_p_f_1_1_main_window_a1726ea278920cace73241a615cf0ec14} 
+async void Rock\+Papper\+Scissors\+WPF.\+Main\+Window.\+Game\+Button\+\_\+\+Click (\begin{DoxyParamCaption}\item[{object}]{sender}{, }\item[{Routed\+Event\+Args}]{e}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Event handler for each Rock/\+Paper/\+Scissors button click. Captures the player\textquotesingle{}s choice and then triggers the logic to finalize or continue the round. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sender} & The source of the event (one of the game buttons).\\
+\hline
+{\em e} & Event arguments.\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_rock_papper_scissors_w_p_f_1_1_main_window_ad34b92fed63ffd5d013e988da8d778f8}\index{RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}!GameModeComboBox\_SelectionChanged@{GameModeComboBox\_SelectionChanged}}
+\index{GameModeComboBox\_SelectionChanged@{GameModeComboBox\_SelectionChanged}!RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}}
+\doxysubsubsection{\texorpdfstring{GameModeComboBox\_SelectionChanged()}{GameModeComboBox\_SelectionChanged()}}
+{\footnotesize\ttfamily \label{class_rock_papper_scissors_w_p_f_1_1_main_window_ad34b92fed63ffd5d013e988da8d778f8} 
+void Rock\+Papper\+Scissors\+WPF.\+Main\+Window.\+Game\+Mode\+Combo\+Box\+\_\+\+Selection\+Changed (\begin{DoxyParamCaption}\item[{object}]{sender}{, }\item[{Selection\+Changed\+Event\+Args}]{e}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Event handler for the Game\+Mode\+Combo\+Box selection change. Updates \doxylink{class_rock_papper_scissors_w_p_f_1_1_main_window_a5c475ac43d1094b5d84a1878bede26cc}{current\+Game\+Mode} and saves the new mode to the configuration. 
+
+\Hypertarget{class_rock_papper_scissors_w_p_f_1_1_main_window_aa9915707822a228c5d065f708419eafc}\index{RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}!GameOver@{GameOver}}
+\index{GameOver@{GameOver}!RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}}
+\doxysubsubsection{\texorpdfstring{GameOver()}{GameOver()}}
+{\footnotesize\ttfamily \label{class_rock_papper_scissors_w_p_f_1_1_main_window_aa9915707822a228c5d065f708419eafc} 
+void Rock\+Papper\+Scissors\+WPF.\+Main\+Window.\+Game\+Over (\begin{DoxyParamCaption}\item[{string}]{message}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Ends the current game, displays the final result, and disables inputs. Also cancels the computer loop if running. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & A message describing the outcome of the game.\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_rock_papper_scissors_w_p_f_1_1_main_window_a94bdd104ce1a9abccf9f4da939bc2d1b}\index{RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}!GetGameModeString@{GetGameModeString}}
+\index{GetGameModeString@{GetGameModeString}!RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}}
+\doxysubsubsection{\texorpdfstring{GetGameModeString()}{GetGameModeString()}}
+{\footnotesize\ttfamily \label{class_rock_papper_scissors_w_p_f_1_1_main_window_a94bdd104ce1a9abccf9f4da939bc2d1b} 
+string Rock\+Papper\+Scissors\+WPF.\+Main\+Window.\+Get\+Game\+Mode\+String (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Returns the string representation of the \doxylink{namespace_rock_papper_scissors_w_p_f_aac301af186e802c996b96abf0a6b26ec}{Game\+Mode} for saving or display. 
+
+\begin{DoxyReturn}{Returns}
+The string that represents the current \doxylink{namespace_rock_papper_scissors_w_p_f_aac301af186e802c996b96abf0a6b26ec}{Game\+Mode}.
+\end{DoxyReturn}
+\Hypertarget{class_rock_papper_scissors_w_p_f_1_1_main_window_aab7282a5da5700e9485766e06ab5c03c}\index{RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}!InitializeGame@{InitializeGame}}
+\index{InitializeGame@{InitializeGame}!RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}}
+\doxysubsubsection{\texorpdfstring{InitializeGame()}{InitializeGame()}}
+{\footnotesize\ttfamily \label{class_rock_papper_scissors_w_p_f_1_1_main_window_aab7282a5da5700e9485766e06ab5c03c} 
+void Rock\+Papper\+Scissors\+WPF.\+Main\+Window.\+Initialize\+Game (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Prepares the game data structures and creates UI elements for player choices. 
+
+\Hypertarget{class_rock_papper_scissors_w_p_f_1_1_main_window_a3a73ec02b29dadbaddee5d4ebf24a41e}\index{RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}!LoadConfiguration@{LoadConfiguration}}
+\index{LoadConfiguration@{LoadConfiguration}!RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}}
+\doxysubsubsection{\texorpdfstring{LoadConfiguration()}{LoadConfiguration()}}
+{\footnotesize\ttfamily \label{class_rock_papper_scissors_w_p_f_1_1_main_window_a3a73ec02b29dadbaddee5d4ebf24a41e} 
+void Rock\+Papper\+Scissors\+WPF.\+Main\+Window.\+Load\+Configuration (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Reads the configuration settings from the INI file (if it exists). Sets UI elements (port, baud rate, game mode) to the saved values. 
+
+\Hypertarget{class_rock_papper_scissors_w_p_f_1_1_main_window_a387641f6d6bbec4491c3321f1be8319d}\index{RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}!MakeChoice@{MakeChoice}}
+\index{MakeChoice@{MakeChoice}!RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}}
+\doxysubsubsection{\texorpdfstring{MakeChoice()}{MakeChoice()}}
+{\footnotesize\ttfamily \label{class_rock_papper_scissors_w_p_f_1_1_main_window_a387641f6d6bbec4491c3321f1be8319d} 
+async Task Rock\+Papper\+Scissors\+WPF.\+Main\+Window.\+Make\+Choice (\begin{DoxyParamCaption}\item[{int}]{choice}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Called when the user (or the computer) selects Rock/\+Paper/\+Scissors. Sets the appropriate player\textquotesingle{}s choice, updates \doxylink{class_rock_papper_scissors_w_p_f_1_1_main_window_af92a57071e0b5a10784747f284d09ea5}{current\+Player}, and sends choices to the server if both are selected. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em choice} & The choice index (0=Rock, 1=Paper, 2=Scissors).\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_rock_papper_scissors_w_p_f_1_1_main_window_af26bed2e82fc48497d8d526ee7c14115}\index{RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}!MakeComputerMove@{MakeComputerMove}}
+\index{MakeComputerMove@{MakeComputerMove}!RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}}
+\doxysubsubsection{\texorpdfstring{MakeComputerMove()}{MakeComputerMove()}}
+{\footnotesize\ttfamily \label{class_rock_papper_scissors_w_p_f_1_1_main_window_af26bed2e82fc48497d8d526ee7c14115} 
+async Task Rock\+Papper\+Scissors\+WPF.\+Main\+Window.\+Make\+Computer\+Move (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Makes a single random move on behalf of the computer. 
+
+\Hypertarget{class_rock_papper_scissors_w_p_f_1_1_main_window_aebd8b917385e4c9a61a1de442e977827}\index{RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}!PlayComputerGame@{PlayComputerGame}}
+\index{PlayComputerGame@{PlayComputerGame}!RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}}
+\doxysubsubsection{\texorpdfstring{PlayComputerGame()}{PlayComputerGame()}}
+{\footnotesize\ttfamily \label{class_rock_papper_scissors_w_p_f_1_1_main_window_aebd8b917385e4c9a61a1de442e977827} 
+async Task Rock\+Papper\+Scissors\+WPF.\+Main\+Window.\+Play\+Computer\+Game (\begin{DoxyParamCaption}\item[{Cancellation\+Token}]{ct}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Handles the computer-\/vs-\/computer game loop. Each player picks randomly with a short delay. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ct} & A cancellation token to stop the computer loop if the game ends.\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_rock_papper_scissors_w_p_f_1_1_main_window_a389f4a053d7603f1bcbb0c776f0028d7}\index{RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}!PortComboBox\_SelectionChanged@{PortComboBox\_SelectionChanged}}
+\index{PortComboBox\_SelectionChanged@{PortComboBox\_SelectionChanged}!RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}}
+\doxysubsubsection{\texorpdfstring{PortComboBox\_SelectionChanged()}{PortComboBox\_SelectionChanged()}}
+{\footnotesize\ttfamily \label{class_rock_papper_scissors_w_p_f_1_1_main_window_a389f4a053d7603f1bcbb0c776f0028d7} 
+void Rock\+Papper\+Scissors\+WPF.\+Main\+Window.\+Port\+Combo\+Box\+\_\+\+Selection\+Changed (\begin{DoxyParamCaption}\item[{object}]{sender}{, }\item[{Selection\+Changed\+Event\+Args}]{e}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Event handler for the port Combo\+Box selection change. Saves the configuration immediately when the user selects a new port. 
+
+\Hypertarget{class_rock_papper_scissors_w_p_f_1_1_main_window_a399b191ea57f338473ccbdbb16182c21}\index{RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}!ProcessServerResponse@{ProcessServerResponse}}
+\index{ProcessServerResponse@{ProcessServerResponse}!RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}}
+\doxysubsubsection{\texorpdfstring{ProcessServerResponse()}{ProcessServerResponse()}}
+{\footnotesize\ttfamily \label{class_rock_papper_scissors_w_p_f_1_1_main_window_a399b191ea57f338473ccbdbb16182c21} 
+void Rock\+Papper\+Scissors\+WPF.\+Main\+Window.\+Process\+Server\+Response (\begin{DoxyParamCaption}\item[{string}]{response}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Processes the server\textquotesingle{}s response to determine the round/game outcome and updates the UI accordingly. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em response} & The raw response string from the server.\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_rock_papper_scissors_w_p_f_1_1_main_window_ab8308c0a2014f0928e94396378d22a88}\index{RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}!RefreshPorts@{RefreshPorts}}
+\index{RefreshPorts@{RefreshPorts}!RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}}
+\doxysubsubsection{\texorpdfstring{RefreshPorts()}{RefreshPorts()}}
+{\footnotesize\ttfamily \label{class_rock_papper_scissors_w_p_f_1_1_main_window_ab8308c0a2014f0928e94396378d22a88} 
+void Rock\+Papper\+Scissors\+WPF.\+Main\+Window.\+Refresh\+Ports (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Loads the available COM ports from the system and populates the Port\+Combo\+Box. 
+
+\Hypertarget{class_rock_papper_scissors_w_p_f_1_1_main_window_ac24ff390005b3261ae298721ee026617}\index{RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}!ResetGame@{ResetGame}}
+\index{ResetGame@{ResetGame}!RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}}
+\doxysubsubsection{\texorpdfstring{ResetGame()}{ResetGame()}}
+{\footnotesize\ttfamily \label{class_rock_papper_scissors_w_p_f_1_1_main_window_ac24ff390005b3261ae298721ee026617} 
+void Rock\+Papper\+Scissors\+WPF.\+Main\+Window.\+Reset\+Game (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Resets the game state to defaults and updates UI elements accordingly. 
+
+\Hypertarget{class_rock_papper_scissors_w_p_f_1_1_main_window_a02f9021566e81013adc3e402ef19578f}\index{RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}!SaveConfiguration@{SaveConfiguration}}
+\index{SaveConfiguration@{SaveConfiguration}!RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}}
+\doxysubsubsection{\texorpdfstring{SaveConfiguration()}{SaveConfiguration()}}
+{\footnotesize\ttfamily \label{class_rock_papper_scissors_w_p_f_1_1_main_window_a02f9021566e81013adc3e402ef19578f} 
+void Rock\+Papper\+Scissors\+WPF.\+Main\+Window.\+Save\+Configuration (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Saves the current configuration (port, baud rate, game mode) to the INI file. 
+
+\Hypertarget{class_rock_papper_scissors_w_p_f_1_1_main_window_a4ac1b9a08d4da6587dc15632297d5724}\index{RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}!SendChoicesToServer@{SendChoicesToServer}}
+\index{SendChoicesToServer@{SendChoicesToServer}!RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}}
+\doxysubsubsection{\texorpdfstring{SendChoicesToServer()}{SendChoicesToServer()}}
+{\footnotesize\ttfamily \label{class_rock_papper_scissors_w_p_f_1_1_main_window_a4ac1b9a08d4da6587dc15632297d5724} 
+async Task Rock\+Papper\+Scissors\+WPF.\+Main\+Window.\+Send\+Choices\+To\+Server (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Sends the accumulated choices to the server if both players have already chosen. If the server returns a result, processes it. 
+
+\Hypertarget{class_rock_papper_scissors_w_p_f_1_1_main_window_afbe722bd0e4dd7530ddd2a3f8d75d8c2}\index{RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}!SendMessageWithTimeout@{SendMessageWithTimeout}}
+\index{SendMessageWithTimeout@{SendMessageWithTimeout}!RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}}
+\doxysubsubsection{\texorpdfstring{SendMessageWithTimeout()}{SendMessageWithTimeout()}}
+{\footnotesize\ttfamily \label{class_rock_papper_scissors_w_p_f_1_1_main_window_afbe722bd0e4dd7530ddd2a3f8d75d8c2} 
+async Task$<$ string $>$ Rock\+Papper\+Scissors\+WPF.\+Main\+Window.\+Send\+Message\+With\+Timeout (\begin{DoxyParamCaption}\item[{string}]{message}{, }\item[{int}]{timeout}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Wraps writing a message to the serial port and waiting for a response with a timeout. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & The message to send to the server.\\
+\hline
+{\em timeout} & The maximum time to wait (in milliseconds) for a response.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The response from the server, or null if there was a timeout or other error.
+\end{DoxyReturn}
+\Hypertarget{class_rock_papper_scissors_w_p_f_1_1_main_window_a704469fbd5deb8706f9c37be91314c4d}\index{RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}!SetGameBoardActive@{SetGameBoardActive}}
+\index{SetGameBoardActive@{SetGameBoardActive}!RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}}
+\doxysubsubsection{\texorpdfstring{SetGameBoardActive()}{SetGameBoardActive()}}
+{\footnotesize\ttfamily \label{class_rock_papper_scissors_w_p_f_1_1_main_window_a704469fbd5deb8706f9c37be91314c4d} 
+void Rock\+Papper\+Scissors\+WPF.\+Main\+Window.\+Set\+Game\+Board\+Active (\begin{DoxyParamCaption}\item[{bool}]{is\+Active}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Enables or disables the choice buttons based on the {\itshape is\+Active}  parameter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em is\+Active} & If true, makes the buttons clickable; otherwise, disables them.\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_rock_papper_scissors_w_p_f_1_1_main_window_a86cd07ff779401775b7a8b1f77dff099}\index{RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}!ShowRoundMoves@{ShowRoundMoves}}
+\index{ShowRoundMoves@{ShowRoundMoves}!RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}}
+\doxysubsubsection{\texorpdfstring{ShowRoundMoves()}{ShowRoundMoves()}}
+{\footnotesize\ttfamily \label{class_rock_papper_scissors_w_p_f_1_1_main_window_a86cd07ff779401775b7a8b1f77dff099} 
+void Rock\+Papper\+Scissors\+WPF.\+Main\+Window.\+Show\+Round\+Moves (\begin{DoxyParamCaption}\item[{string}]{round\+Result}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Displays a message box with the moves and results for the current round. Also appends the round info to the \doxylink{class_rock_papper_scissors_w_p_f_1_1_main_window_a81d49b49e4862e214fc368537f282fa9}{round\+History}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em round\+Result} & A string describing the outcome (e.\+g., "{}draw"{}, "{}\+Player One won"{}).\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_rock_papper_scissors_w_p_f_1_1_main_window_a0cb739eede7ac4ca1b59ba101e0f8089}\index{RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}!StartGame\_Click@{StartGame\_Click}}
+\index{StartGame\_Click@{StartGame\_Click}!RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}}
+\doxysubsubsection{\texorpdfstring{StartGame\_Click()}{StartGame\_Click()}}
+{\footnotesize\ttfamily \label{class_rock_papper_scissors_w_p_f_1_1_main_window_a0cb739eede7ac4ca1b59ba101e0f8089} 
+async void Rock\+Papper\+Scissors\+WPF.\+Main\+Window.\+Start\+Game\+\_\+\+Click (\begin{DoxyParamCaption}\item[{object}]{sender}{, }\item[{Routed\+Event\+Args}]{e}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Event handler for the "{}\+Start Game"{} button click. Sets up the serial port, sends a reset command to the server, and starts the game loop if necessary. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sender} & The source of the event (the Start\+Game button).\\
+\hline
+{\em e} & Event arguments.\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_rock_papper_scissors_w_p_f_1_1_main_window_a64c8af012d3a6a4d007a832a135f9446}\index{RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}!baudRate@{baudRate}}
+\index{baudRate@{baudRate}!RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}}
+\doxysubsubsection{\texorpdfstring{baudRate}{baudRate}}
+{\footnotesize\ttfamily \label{class_rock_papper_scissors_w_p_f_1_1_main_window_a64c8af012d3a6a4d007a832a135f9446} 
+int Rock\+Papper\+Scissors\+WPF.\+Main\+Window.\+baud\+Rate\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_rock_papper_scissors_w_p_f_1_1_main_window_addaffebf6516adf6ba224b7c2079518b}\index{RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}!buttons@{buttons}}
+\index{buttons@{buttons}!RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}}
+\doxysubsubsection{\texorpdfstring{buttons}{buttons}}
+{\footnotesize\ttfamily \label{class_rock_papper_scissors_w_p_f_1_1_main_window_addaffebf6516adf6ba224b7c2079518b} 
+Button \mbox{[},\mbox{]} Rock\+Papper\+Scissors\+WPF.\+Main\+Window.\+buttons\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_rock_papper_scissors_w_p_f_1_1_main_window_aa3be50568de30bb74d859d90d06c8a5b}\index{RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}!computerGameCts@{computerGameCts}}
+\index{computerGameCts@{computerGameCts}!RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}}
+\doxysubsubsection{\texorpdfstring{computerGameCts}{computerGameCts}}
+{\footnotesize\ttfamily \label{class_rock_papper_scissors_w_p_f_1_1_main_window_aa3be50568de30bb74d859d90d06c8a5b} 
+Cancellation\+Token\+Source Rock\+Papper\+Scissors\+WPF.\+Main\+Window.\+computer\+Game\+Cts\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_rock_papper_scissors_w_p_f_1_1_main_window_ab47f478691070767a11bd81684b5d130}\index{RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}!configPath@{configPath}}
+\index{configPath@{configPath}!RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}}
+\doxysubsubsection{\texorpdfstring{configPath}{configPath}}
+{\footnotesize\ttfamily \label{class_rock_papper_scissors_w_p_f_1_1_main_window_ab47f478691070767a11bd81684b5d130} 
+string Rock\+Papper\+Scissors\+WPF.\+Main\+Window.\+config\+Path = "{}config.\+ini"{}\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_rock_papper_scissors_w_p_f_1_1_main_window_aa7b5385b8155f32018a74ebdc242d406}\index{RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}!currentChoicePlayerOne@{currentChoicePlayerOne}}
+\index{currentChoicePlayerOne@{currentChoicePlayerOne}!RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}}
+\doxysubsubsection{\texorpdfstring{currentChoicePlayerOne}{currentChoicePlayerOne}}
+{\footnotesize\ttfamily \label{class_rock_papper_scissors_w_p_f_1_1_main_window_aa7b5385b8155f32018a74ebdc242d406} 
+int? Rock\+Papper\+Scissors\+WPF.\+Main\+Window.\+current\+Choice\+Player\+One\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_rock_papper_scissors_w_p_f_1_1_main_window_a3db35e34a5dc037b750acdb037d0aad4}\index{RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}!currentChoicePlayerTwo@{currentChoicePlayerTwo}}
+\index{currentChoicePlayerTwo@{currentChoicePlayerTwo}!RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}}
+\doxysubsubsection{\texorpdfstring{currentChoicePlayerTwo}{currentChoicePlayerTwo}}
+{\footnotesize\ttfamily \label{class_rock_papper_scissors_w_p_f_1_1_main_window_a3db35e34a5dc037b750acdb037d0aad4} 
+int? Rock\+Papper\+Scissors\+WPF.\+Main\+Window.\+current\+Choice\+Player\+Two\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_rock_papper_scissors_w_p_f_1_1_main_window_a5c475ac43d1094b5d84a1878bede26cc}\index{RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}!currentGameMode@{currentGameMode}}
+\index{currentGameMode@{currentGameMode}!RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}}
+\doxysubsubsection{\texorpdfstring{currentGameMode}{currentGameMode}}
+{\footnotesize\ttfamily \label{class_rock_papper_scissors_w_p_f_1_1_main_window_a5c475ac43d1094b5d84a1878bede26cc} 
+\mbox{\hyperlink{namespace_rock_papper_scissors_w_p_f_aac301af186e802c996b96abf0a6b26ec}{Game\+Mode}} Rock\+Papper\+Scissors\+WPF.\+Main\+Window.\+current\+Game\+Mode\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_rock_papper_scissors_w_p_f_1_1_main_window_af92a57071e0b5a10784747f284d09ea5}\index{RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}!currentPlayer@{currentPlayer}}
+\index{currentPlayer@{currentPlayer}!RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}}
+\doxysubsubsection{\texorpdfstring{currentPlayer}{currentPlayer}}
+{\footnotesize\ttfamily \label{class_rock_papper_scissors_w_p_f_1_1_main_window_af92a57071e0b5a10784747f284d09ea5} 
+string Rock\+Papper\+Scissors\+WPF.\+Main\+Window.\+current\+Player\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_rock_papper_scissors_w_p_f_1_1_main_window_ac4e30ffecab81f23dcdf4fba2d6eff55}\index{RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}!isComputerTurn@{isComputerTurn}}
+\index{isComputerTurn@{isComputerTurn}!RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}}
+\doxysubsubsection{\texorpdfstring{isComputerTurn}{isComputerTurn}}
+{\footnotesize\ttfamily \label{class_rock_papper_scissors_w_p_f_1_1_main_window_ac4e30ffecab81f23dcdf4fba2d6eff55} 
+bool Rock\+Papper\+Scissors\+WPF.\+Main\+Window.\+is\+Computer\+Turn\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_rock_papper_scissors_w_p_f_1_1_main_window_a7823c82d1b20eee2d462171e14e211dd}\index{RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}!isGameActive@{isGameActive}}
+\index{isGameActive@{isGameActive}!RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}}
+\doxysubsubsection{\texorpdfstring{isGameActive}{isGameActive}}
+{\footnotesize\ttfamily \label{class_rock_papper_scissors_w_p_f_1_1_main_window_a7823c82d1b20eee2d462171e14e211dd} 
+bool Rock\+Papper\+Scissors\+WPF.\+Main\+Window.\+is\+Game\+Active\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_rock_papper_scissors_w_p_f_1_1_main_window_ada0d445118f093fe1d4e0518ea923050}\index{RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}!lastMoveTime@{lastMoveTime}}
+\index{lastMoveTime@{lastMoveTime}!RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}}
+\doxysubsubsection{\texorpdfstring{lastMoveTime}{lastMoveTime}}
+{\footnotesize\ttfamily \label{class_rock_papper_scissors_w_p_f_1_1_main_window_ada0d445118f093fe1d4e0518ea923050} 
+Date\+Time Rock\+Papper\+Scissors\+WPF.\+Main\+Window.\+last\+Move\+Time = Date\+Time.\+Min\+Value\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Represents the time of the last move made. 
+
+\Hypertarget{class_rock_papper_scissors_w_p_f_1_1_main_window_ac833714a50ed8213dfd5fe4caba5a5d7}\index{RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}!moveDelay@{moveDelay}}
+\index{moveDelay@{moveDelay}!RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}}
+\doxysubsubsection{\texorpdfstring{moveDelay}{moveDelay}}
+{\footnotesize\ttfamily \label{class_rock_papper_scissors_w_p_f_1_1_main_window_ac833714a50ed8213dfd5fe4caba5a5d7} 
+readonly Time\+Span Rock\+Papper\+Scissors\+WPF.\+Main\+Window.\+move\+Delay = Time\+Span.\+From\+Seconds(0.\+5)\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A time span that enforces a delay between moves. 
+
+\Hypertarget{class_rock_papper_scissors_w_p_f_1_1_main_window_a0c891cab6c69ac3416c0cad20270a51a}\index{RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}!random@{random}}
+\index{random@{random}!RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}}
+\doxysubsubsection{\texorpdfstring{random}{random}}
+{\footnotesize\ttfamily \label{class_rock_papper_scissors_w_p_f_1_1_main_window_a0c891cab6c69ac3416c0cad20270a51a} 
+Random Rock\+Papper\+Scissors\+WPF.\+Main\+Window.\+random\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_rock_papper_scissors_w_p_f_1_1_main_window_a81d49b49e4862e214fc368537f282fa9}\index{RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}!roundHistory@{roundHistory}}
+\index{roundHistory@{roundHistory}!RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}}
+\doxysubsubsection{\texorpdfstring{roundHistory}{roundHistory}}
+{\footnotesize\ttfamily \label{class_rock_papper_scissors_w_p_f_1_1_main_window_a81d49b49e4862e214fc368537f282fa9} 
+readonly List$<$\mbox{\hyperlink{class_rock_papper_scissors_w_p_f_1_1_main_window_1_1_round_info}{Round\+Info}}$>$ Rock\+Papper\+Scissors\+WPF.\+Main\+Window.\+round\+History = new List$<$\mbox{\hyperlink{class_rock_papper_scissors_w_p_f_1_1_main_window_1_1_round_info}{Round\+Info}}$>$()\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_rock_papper_scissors_w_p_f_1_1_main_window_a6ffe34f7febe4591a7f572a3789acbec}\index{RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}!serialPort@{serialPort}}
+\index{serialPort@{serialPort}!RockPapperScissorsWPF.MainWindow@{RockPapperScissorsWPF.MainWindow}}
+\doxysubsubsection{\texorpdfstring{serialPort}{serialPort}}
+{\footnotesize\ttfamily \label{class_rock_papper_scissors_w_p_f_1_1_main_window_a6ffe34f7febe4591a7f572a3789acbec} 
+Serial\+Port Rock\+Papper\+Scissors\+WPF.\+Main\+Window.\+serial\+Port\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+client/client/\mbox{\hyperlink{_main_window_8xaml_8cs}{Main\+Window.\+xaml.\+cs}}\end{DoxyCompactItemize}
